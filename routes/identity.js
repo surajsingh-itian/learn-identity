@@ -65,6 +65,28 @@ router.post('/login', function(req, res, next) {
        res.json({
     message: 'login successful.'
   })
+
+});
+router.post('/register', function(req, res, next) {
+ let username = req.body.username;
+  if (!username) {
+    res.json({
+      error: {
+        code: 10002,
+        message: 'username is missing',
+        description: 'username is required to log-in',
+        resolution: 'Kindly enter valid username.'
+      }
+    });
+    return;
+  }
+
+  // TODO: validate e-mail
+  // TODO: check e-mail exists
+
+  res.json({
+    message: 'Username is valid enter password.'
+  })
 });
 
 module.exports = router ;
