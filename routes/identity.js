@@ -70,6 +70,7 @@ router.post('/login', function(req, res, next) {
 router.post('/register', function(req, res, next) {
  let username = req.body.username;
  let password =req.body.password;
+ let email= req.body.email; 
   if (!username) {
     res.json({
       error: {
@@ -103,6 +104,22 @@ if (!password) {
        res.json({
     message: 'login successful.'
   })
+if (!email) {
+    res.json({
+      error: {
+        code: 10003,
+        message: 'email is missing',
+        description: 'email is required to log-in',
+        resolution: 'Kindly enter valid email.'
+      }
+    });
+    return;
+      }
+
+       res.json({
+    message: 'login successful.'
+  })
+
 });
 
 module.exports = router ;
