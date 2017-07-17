@@ -30,7 +30,7 @@ router.post('/forgot-username', function(req, res, next) {
 router.post('/login', function(req, res, next) {
  let username = req.body.username;
  let password =req.body.password;
-  if (!username && password) {
+  if (!username || password) {
     res.json({
       error: {
         code: 10002,
