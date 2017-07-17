@@ -48,7 +48,77 @@ router.post('/login', function(req, res, next) {
   res.json({
     message: 'login sucessful.'
   })
+});
 
+router.post('/register', function(req, res, next) {
+ let username = req.body.username;
+ let password =req.body.password;
+ let email= req.body.email; 
+  if (!username) {
+    res.json({
+      error: {
+        code: 10002,
+        message: 'username is missing',
+        description: 'username is required to log-in',
+        resolution: 'Kindly enter valid username.'
+      }
+    });
+    return;
+  }
+
+  // TODO: validate e-mail
+  // TODO: check e-mail exists
+
+  res.json({
+    message: 'Username is valid enter password.'
+  })
+if (!password) {
+    res.json({
+      error: {
+        code: 10003,
+        message: 'password is missing',
+        description: 'password is required to log-in',
+        resolution: 'Kindly enter valid pasword.'
+      }
+    });
+    return;
+      }
+
+       res.json({
+    message: 'login successful.'
+  })
+if (!email) {
+    res.json({
+      error: {
+        code: 10003,
+        message: 'email is missing',
+        description: 'email is required to log-in',
+        resolution: 'Kindly enter valid email.'
+      }
+    });
+    return;
+      }
+
+       res.json({
+    message: 'login successful.'
+  })
+
+
+      if (!password) {
+    res.json({
+      error: {
+        code: 10003,
+        message: 'password is missing',
+        description: 'password is required to log-in',
+        resolution: 'Kindly enter valid pasword.'
+      }
+    });
+    return;
+      }
+
+       res.json({
+    message: 'login successful.'
+  })
 });
 
 module.exports = router ;
