@@ -13,8 +13,8 @@ router.post('/forgot-username', function(req, res, next) {
         resolution: 'Kindly enter valid email.'
       }
     });
-    return;
-  }
+ return;
+ }
 
   // TODO: validate e-mail
   // TODO: check e-mail exists
@@ -30,13 +30,13 @@ router.post('/forgot-username', function(req, res, next) {
 router.post('/login', function(req, res, next) {
  let username = req.body.username;
  let password =req.body.password;
-  if (!username) {
+  if (!username || password) {
     res.json({
       error: {
         code: 10002,
-        message: 'username is missing',
-        description: 'username is required to log-in',
-        resolution: 'Kindly enter valid username.'
+        message: 'invalid credentials',
+        description: 'username and password is incorrect',
+        resolution: 'pls write correct username and password.'
       }
     });
     return;
@@ -46,9 +46,10 @@ router.post('/login', function(req, res, next) {
   // TODO: check e-mail exists
 
   res.json({
-    message: 'Username is valid enter password.'
+    message: 'login sucessful.'
   })
 
+<<<<<<< HEAD
 
       if (!password) {
     res.json({
@@ -120,6 +121,25 @@ if (!email) {
     message: 'login successful.'
   })
 
+||||||| merged common ancestors
+
+      if (!password) {
+    res.json({
+      error: {
+        code: 10003,
+        message: 'password is missing',
+        description: 'password is required to log-in',
+        resolution: 'Kindly enter valid pasword.'
+      }
+    });
+    return;
+      }
+
+       res.json({
+    message: 'login successful.'
+  })
+=======
+>>>>>>> login
 });
 
 module.exports = router ;
